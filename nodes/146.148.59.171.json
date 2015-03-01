@@ -1,0 +1,11 @@
+{
+    "mysql": {
+        "server_debian_password": "password",
+        "server_root_password": "password",
+        "server_repl_password": "password"
+    },
+    "run_list": [ "recipe[apt]", "recipe[blog]" ],
+    "automatic": {
+        "ipaddress": "146.148.59.171"
+    }
+}

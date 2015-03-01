@@ -1,0 +1,48 @@
+{
+    "run_list":[
+        "railsbox"
+    ],
+    "automatic": {
+        "ipaddress": "146.148.59.171"
+    },
+    "appbox": {
+        "deploy_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDrfl+9uEWWej+lmQk3aRdFH9M7zs4PHuVe1/6C8UWCFVV2sRqzLuKiuh/bpoGpwuSfK6Epo7Ojco8TjtSqkrYOFxKsCk0a6Umfv3j4JGhEzFiX2o3BTSLF/RzkGFRCAbo9LHq+wCX84SHr6+BMMRG2eWIbvFrBclFXtVL8fOd3Ofldm1UAbRDnLB7iXTWBwZdoVdEduOScIH+Ke/DXkia2pZ4Vj81cbhGUo3hXu/RXDXibYB+TapOLSU0/k68drZKvb6jlUXJJPvxKuwCf6lLfzORgtqHFwluMvpANYreBXGdwAi/mwO+sNFHH6Bb5KQcb3vfuMnP2fSuQwfjtKLsv ajahammerly@google.com"],
+        "admin_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDrfl+9uEWWej+lmQk3aRdFH9M7zs4PHuVe1/6C8UWCFVV2sRqzLuKiuh/bpoGpwuSfK6Epo7Ojco8TjtSqkrYOFxKsCk0a6Umfv3j4JGhEzFiX2o3BTSLF/RzkGFRCAbo9LHq+wCX84SHr6+BMMRG2eWIbvFrBclFXtVL8fOd3Ofldm1UAbRDnLB7iXTWBwZdoVdEduOScIH+Ke/DXkia2pZ4Vj81cbhGUo3hXu/RXDXibYB+TapOLSU0/k68drZKvb6jlUXJJPvxKuwCf6lLfzORgtqHFwluMvpANYreBXGdwAi/mwO+sNFHH6Bb5KQcb3vfuMnP2fSuQwfjtKLsv ajahammerly@google.com"]
+    },
+    "railsbox": {
+        "db_root_password": "password",
+        "databases": {
+            "postgresql": [
+                { "username": "psyapp",
+                  "password": "psqlpassword",
+                  "database_name": "blog_production" }
+            ]
+        },
+        "ruby": {
+            "versions": ["2.0.0-p247", "2.0.0-p247"],
+            "global_version": "2.0.0-p247"
+        },
+        "node": {
+            "install_method": ["binary"]
+        },
+        "apps": {
+            "unicorn": [
+                { "appname": "blog",
+                  "hostname": "146.148.59.171"
+                }
+            ]
+        }
+    },
+    "github_deploys": {
+        "deploy_user": "deploy",
+        "github_api": {
+            "username": "thagomizer",
+            "email": "ajahammerly@google.com",
+            "password": "hovel23@Chmn"
+        }
+    },
+    "nginx":
+    {
+        "version": "1.5.2"
+    }
+}
