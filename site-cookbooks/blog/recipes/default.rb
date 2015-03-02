@@ -1,74 +1,25 @@
-#
-# Cookbook Name:: blog
-# Recipe:: default
-#
-# Copyright 2015, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
+## default.rb
 
-include_recipe 'runit'
+user = node[:deploy_user]
 
-package 'nodejs' # for javascript runtime
-
-mysql_connection_info = {
-  :host => 'localhost',
-  :username => 'root',
-  :password => 'password',
-  :socket   => '/run/mysql-default/mysqld.sock'
-}
-
-mysql2_chef_gem "default" do
-  action :install
+directory "/var/www/" do
+  owner user
+  group user
+  recursive true
 end
 
-mysql_service 'default' do
-  version '5.5'
-  initial_root_password 'password'
-  action [:create, :start]
-end
+## rails_nginx_unicorn_app.rb
 
-mysql_client 'default' do
-  action :create
-end
+include_recipe "rails_nginx_unicorn"
 
-mysql_database "blog_production" do
-  connection mysql_connection_info
-  action :create
-end
-
-mysql_database_user 'blog' do
-  connection mysql_connection_info
-  password ''
-  database_name "blog_production"
-  action :grant
-end
-
-# runit_service "blog" do
-#   default_logger true
-# end
-
-# we define our application using application resource provided by application cookbook
-application 'blog' do
-  path '/usr/local/www/blog'
-  revision 'master'
-  repository 'git@github.com:thagomizer/examples-rails-blog.git'
-  deploy_key '/home/ajahammerly/.ssh/id_rsa'
-  migrate true
-  rails do
-    bundler true
-    database do
-      host 'localhost'
-      username mysql_connection_info[:username]
-      password mysql_connection_info[:password]
-      database 'blog_production'
-      adapter 'mysql2'
-      encoding 'utf8'
-    end
-  end
-  unicorn do
-    preload_app true
-    worker_timeout 30
-    worker_processes 2
-  end
+rails_nginx_unicorn_app node[:server_name] do
+  app_root node[:deploy_to]
+  deploy_user node[:deploy_user]
+  deploy_group node[:deploy_group]
+  server_names node[:server_name]
+  http_port node[:http_port]
+  https_port node[:https_port]
+  name node[:application_name]
+  rails_env node[:application_env]
+  enabled true
 end

@@ -3,24 +3,23 @@
 
 site 'https://supermarket.getchef.com/api/v1'
 
-cookbook 'application_ruby'
+# server base cookbooks
+cookbook 'ubuntu'
+cookbook 'users'
+cookbook 'user', :git => 'ssh://git@github.com/fnichol/chef-user.git'
+cookbook 'sudo'
 cookbook 'apt'
-cookbook 'user'
+cookbook 'git'
+cookbook 'vim'
+cookbook 'build-essential'
+cookbook 'ntp'
+cookbook 'chef-solo-search', :git => 'https://github.com/edelight/chef-solo-search.git'
 cookbook 'ruby_build'
-cookbook "mysql", "~> 6.0"
-cookbook "mysql2_chef_gem", "~> 1.0.1"
-cookbook "database", "~> 4.0.3"
-cookbook "nodejs"
 
-# cookbook 'railsbox', '~> 0.1.0'
+#rails server cookbooks
+cookbook 'nginx'
+cookbook 'rails_nginx_unicorn', :git => "https://github.com/substantial/cookbook-rails_nginx_unicorn.git", :ref => 'feature/no-rvm'
 
-# cookbook 'chef-client'
-
-# cookbook 'apache2', '>= 1.0.0'
-
-# cookbook 'rvm',
-#   :git => 'https://github.com/fnichol/chef-rvm'
-
-# cookbook 'postgresql',
-#   :git => 'https://github.com/findsyou/cookbooks',
-#   :ref => 'postgresql-improvements'
+#database server cookbooks
+cookbook 'mysql', "< 6.0"
+cookbook 'database'

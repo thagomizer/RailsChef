@@ -1,6 +1,6 @@
 {
   "run_list": ["role[db_server]", "role[app_server]"],
-  "server_name": "146.148.59.171",
+  "server_name": "104.154.79.107",
   "application_env": "production",
   "deploy_user": "deploy",
   "deploy_group": "deploy",

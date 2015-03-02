@@ -92,5 +92,6 @@ PLATFORMS
 DEPENDENCIES
   chef (~> 11.16.2)
   knife-solo (~> 0.4.1)
+  librarian
   librarian-chef (~> 0.0.4)
   rake

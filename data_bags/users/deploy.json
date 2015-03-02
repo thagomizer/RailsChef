@@ -1,0 +1,7 @@
+{
+  "id": "deploy",
+  "ssh_keys": ["ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCx7TKF0i49YqMZ4Rsb038PnxMuzlVo/po3IgnROyqkJ+macxkPfywvmBZ3qKdP10qKhWR6/Eet3zlYOvrIGudL2aaBSHsOKDPv168yQ6CKVAR9G74S3qKPl2B61a8FPnzRpCotuqpgNqGDspZrmxlxtshAEz5dyN1EXbJj7RVOVciIx8KEMDsbKrE6duUG4J4lJ5L5F05Xgvz6Fj8exj9u3qHUfQHvVXPl5quI37sjCFUBKB+BgBjlXMvha7L0gtbhHdhb91t1FjogJd4cPFKFMdEutkJ4b2Djd/OrmNVAL1qRS9aVOzLy2LEpTCvNEofqAiWVcoYHZpocyWIktsQR aja.hammerly@gmail.com"
+  ],
+  "shell": "\/bin\/bash",
+  "comment": "deploy user"
+}
